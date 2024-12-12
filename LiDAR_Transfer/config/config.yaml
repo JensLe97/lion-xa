@@ -1,0 +1,10 @@
+name: "Velodyne HDL-64E Lidar KITTI"
+beams: 64
+fov_up: 3
+fov_down: -25
+fov_hor: 360
+angle_res_hor: 0.1757 # 2048
+res_hor: 2048
+height: 1.73
+beam_angles:
+  

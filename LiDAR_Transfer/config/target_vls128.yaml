@@ -1,0 +1,9 @@
+name: "Velodyne Alpha Prime Lidar"
+beams: 128
+fov_down: -25
+fov_up: 15
+fov_hor: 360
+angle_res_hor: 0.17578125 # 1024
+res_hor: 2048
+height: 1.73
+beam_angles:

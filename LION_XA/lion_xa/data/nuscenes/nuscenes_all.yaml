@@ -1,0 +1,281 @@
+# This file is covered by the LICENSE file in the root of this project.
+name: "nuscenes"
+labels:
+  0: 'noise'
+  1: 'animal'
+  2: 'human.pedestrian.adult'
+  3: 'human.pedestrian.child'
+  4: 'human.pedestrian.construction_worker'
+  5: 'human.pedestrian.personal_mobility'
+  6: 'human.pedestrian.police_officer'
+  7: 'human.pedestrian.stroller'
+  8: 'human.pedestrian.wheelchair'
+  9: 'movable_object.barrier'
+  10: 'movable_object.debris'
+  11: 'movable_object.pushable_pullable'
+  12: 'movable_object.trafficcone'
+  13: 'static_object.bicycle_rack'
+  14: 'vehicle.bicycle'
+  15: 'vehicle.bus.bendy'
+  16: 'vehicle.bus.rigid'
+  17: 'vehicle.car'
+  18: 'vehicle.construction'
+  19: 'vehicle.emergency.ambulance'
+  20: 'vehicle.emergency.police'
+  21: 'vehicle.motorcycle'
+  22: 'vehicle.trailer'
+  23: 'vehicle.truck'
+  24: 'flat.driveable_surface'
+  25: 'flat.other'
+  26: 'flat.sidewalk'
+  27: 'flat.terrain'
+  28: 'static.manmade'
+  29: 'static.other'
+  30: 'static.vegetation'
+  31: 'vehicle.ego'
+color_map: # bgr
+  0:  [0, 0, 0]  # Black.
+  1:  [70, 130, 180]  # Steelblue
+  2:  [0, 0, 230]  # Blue
+  3:  [135, 206, 235]  # Skyblue,
+  4:  [100, 149, 237]  # Cornflowerblue
+  5:  [219, 112, 147]  # Palevioletred
+  6:  [0, 0, 128]  # Navy,
+  7:  [240, 128, 128]  # Lightcoral
+  8:  [138, 43, 226]  # Blueviolet
+  9:  [112, 128, 144]  # Slategrey
+  10: [210, 105, 30]  # Chocolate
+  11: [105, 105, 105]  # Dimgrey
+  12: [47, 79, 79]  # Darkslategrey
+  13: [188, 143, 143]  # Rosybrown
+  14: [220, 20, 60]  # Crimson
+  15: [255, 127, 80]  # Coral
+  16: [255, 69, 0]  # Orangered
+  17: [255, 158, 0]  # Orange
+  18: [233, 150, 70]  # Darksalmon
+  19: [255, 83, 0]
+  20: [255, 215, 0]  # Gold
+  21: [255, 61, 99]  # Red
+  22: [255, 140, 0]  # Darkorange
+  23: [255, 99, 71]  # Tomato
+  24: [0, 207, 191]  # nuTonomy green
+  25: [175, 0, 75]
+  26: [75, 0, 75]
+  27: [112, 180, 60]
+  28: [222, 184, 135]  # Burlywood
+  29: [255, 228, 196]  # Bisque
+  30: [0, 175, 0]  # Green
+  31: [255, 240, 245]
+content: # as a ratio with the total number of points
+  0: 0.018889854628292943
+  1: 0.0002937197336781505
+  10: 0.040818519255974316
+  11: 0.00016609538710764618
+  13: 2.7879693665067774e-05
+  15: 0.00039838616015114444
+  16: 0.0
+  18: 0.0020633612104619787
+  20: 0.0016218197275284021
+  30: 0.00017698551338515307
+  31: 1.1065903904919655e-08
+  32: 5.532951952459828e-09
+  40: 0.1987493871255525
+  44: 0.014717169549888214
+  48: 0.14392298360372
+  49: 0.0039048553037472045
+  50: 0.1326861944777486
+  51: 0.0723592229456223
+  52: 0.002395131480328884
+  60: 4.7084144280367186e-05
+  70: 0.26681502148037506
+  71: 0.006035012012626033
+  72: 0.07814222006271769
+  80: 0.002855498193863172
+  81: 0.0006155958086189918
+  99: 0.009923127583046915
+  252: 0.001789309418528068
+  253: 0.00012709999297008662
+  254: 0.00016059776092534436
+  255: 3.745553104802113e-05
+  256: 0.0
+  257: 0.00011351574470342043
+  258: 0.00010157861367183268
+  259: 4.3840131989471124e-05
+# classes that are indistinguishable from single scan or inconsistent in
+# ground truth are mapped to their closest equivalent
+learning_map:
+  0: 0
+  1: 1
+  2: 2
+  3: 3
+  4: 4
+  5: 5
+  6: 6
+  7: 7
+  8: 8
+  9: 9
+  10: 10
+  11: 11
+  12: 12
+  13: 13
+  14: 14
+  15: 15
+  16: 16
+  17: 17
+  18: 18
+  19: 19
+  20: 20
+  21: 21
+  22: 22
+  23: 23
+  24: 24
+  25: 25
+  26: 26
+  27: 27
+  28: 28
+  29: 29
+  30: 30
+  31: 31
+learning_map_inv: # inverse of previous map
+  0: 0
+  1: 1
+  2: 2
+  3: 3
+  4: 4
+  5: 5
+  6: 6
+  7: 7
+  8: 8
+  9: 9
+  10: 10
+  11: 11
+  12: 12
+  13: 13
+  14: 14
+  15: 15
+  16: 16
+  17: 17
+  18: 18
+  19: 19
+  20: 20
+  21: 21
+  22: 22
+  23: 23
+  24: 24
+  25: 25
+  26: 26
+  27: 27
+  28: 28
+  29: 29
+  30: 30
+  31: 31
+learning_ignore: # Ignore classes
+  0: False
+  1: False
+  2: False
+  3: False
+  4: False
+  5: False
+  6: False
+  7: False
+  8: False
+  9: False
+  10: False
+  11: False
+  12: False
+  13: False
+  14: False
+  15: False
+  16: False
+  17: False
+  18: False
+  19: False
+  20: False
+  21: False
+  22: False
+  23: False
+  24: False
+  25: False
+  26: False
+  27: False
+  28: False
+  29: False
+  30: False
+  31: False
+split: # sequence numbers
+  train:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 9
+    - 10
+  valid:
+    - 8
+  test:
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+    - 21
+color_inv_map: # bgr
+  0:  [0, 0, 0]  # Black.
+  1:  [70, 130, 180]  # Steelblue
+  2:  [0, 0, 230]  # Blue
+  3:  [135, 206, 235]  # Skyblue,
+  4:  [100, 149, 237]  # Cornflowerblue
+  5:  [219, 112, 147]  # Palevioletred
+  6:  [0, 0, 128]  # Navy,
+  7:  [240, 128, 128]  # Lightcoral
+  8:  [138, 43, 226]  # Blueviolet
+  9:  [112, 128, 144]  # Slategrey
+  10: [210, 105, 30]  # Chocolate
+  11: [105, 105, 105]  # Dimgrey
+  12: [47, 79, 79]  # Darkslategrey
+  13: [188, 143, 143]  # Rosybrown
+  14: [220, 20, 60]  # Crimson
+  15: [255, 127, 80]  # Coral
+  16: [255, 69, 0]  # Orangered
+  17: [255, 158, 0]  # Orange
+  18: [233, 150, 70]  # Darksalmon
+  19: [255, 83, 0]
+  20: [255, 215, 0]  # Gold
+  21: [255, 61, 99]  # Red
+  22: [255, 140, 0]  # Darkorange
+  23: [255, 99, 71]  # Tomato
+  24: [0, 207, 191]  # nuTonomy green
+  25: [175, 0, 75]
+  26: [75, 0, 75]
+  27: [112, 180, 60]
+  28: [222, 184, 135]  # Burlywood
+  29: [255, 228, 196]  # Bisque
+  30: [0, 175, 0]  # Green
+  31: [255, 240, 245]
+data_statics:
+  proj_remission_mean: 0.0723418
+  proj_remission_std: 0.0819560
+  proj_remission_max: 0.9900006
+  proj_remission_min: 0.0
+  proj_xyz_mean: [-0.13085715, 0.43396055, -0.98563757]
+  proj_xyz_std: [11.37198158, 8.28682616, 0.83174261]
+  proj_xyz_max: [79.99637499, 79.99346872, 2.83878378]
+  proj_xyz_min: [-81.15207565, -79.99407824, -32.01170806]
+  proj_range_mean: 12.0484476
+  proj_range_std: 13.0346537
+  proj_range_max: 0.0
+  proj_range_min: 81.352325
+  proj_norm_mean: [-0.0476603, 0.1695879, 0.6443553]
+  proj_norm_var: [0.03986731, 0.12089375, 0.08171334]
+  proj_norm_std: [0.2641083, 0.5344841, 0.3814302]
+  proj_norm_min: [-0.99992424, -0.9999241, 0.0]
+  proj_norm_max: [0.99992424, 0.9999244, 1.0]

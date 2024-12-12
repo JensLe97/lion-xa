@@ -1,0 +1,64 @@
+MODEL_2D:
+  TYPE: "SalsaNextSeg"
+  DUAL_HEAD: True
+  NUM_CLASSES: 12
+MODEL_3D:
+  TYPE: "PVD"
+  DUAL_HEAD: True
+  NUM_CLASSES: 12
+DATASET_SOURCE:
+  TYPE: "SemanticKITTISCN"
+  TRAIN: ("train",)
+  SemanticKITTISCN:
+    root_dir: "/_data/datasets/SemanticKITTI"
+DATASET_TARGET:
+  TYPE: "SemanticPOSSSCN"
+  TRAIN: ("train",)
+  VAL: ("val",)
+  TEST: ("test",)
+  SemanticPOSSSCN:
+    preprocess_dir: "/_data/datasets/SemanticPOSS/semantic_poss_preprocess_lidar/preprocess"
+DATALOADER:
+  NUM_WORKERS: 4
+OPTIMIZER:
+  TYPE: "SGD"
+  BASE_LR: 0.001
+OPTIMIZER_DIS:
+  TYPE: "Adam"
+  BASE_LR: 0.0001
+  Adam:
+      betas: (0.9, 0.99)
+SCHEDULER:
+  TYPE: "MultiStepLR"
+  MultiStepLR:
+    gamma: 0.1
+    milestones: (80000, 90000)
+  MAX_ITERATION: 100000
+SCHEDULER_DIS:
+  TYPE: "PolyLR"
+  PolyLR:
+      power: 0.9
+TRAIN:
+  BATCH_SIZE: 8
+  SUMMARY_PERIOD: 50
+  CHECKPOINT_PERIOD: 5000
+  CLASS_WEIGHTS: [4.0436774, 4.29221852, 1.96403344, 2.77988723, 1.19950707, 3.72986402, 
+                  3.10767449, 2.57602206, 1.52389708, 1.74482833, 4.31337526, 1.]
+  LION_XA:
+    lambda_xm_src: 0.8
+    lambda_xm_tgl: 0.8
+    lambda_xm_trg: 0.1
+    lambda_pixels: 0.5
+    lambda_G_trg_2d_pred: 0.07
+    lambda_G_trg_3d_pred: 0.07
+    lambda_G_trg_2d_feat: 0.001
+    lambda_D_src_2d_pred: 0.1
+    lambda_D_src_3d_pred: 0.1
+    lambda_D_src_2d_feat: 0.1
+    lambda_D_trg_2d_pred: 0.15
+    lambda_D_trg_3d_pred: 0.15
+    lambda_D_trg_2d_feat: 0.15
+VAL:
+  BATCH_SIZE: 2
+  PERIOD: 5000
+OUTPUT_DIR: "/workspace/lion-xa/LION_XA/output/@"  #  @ will be replaced with config path, e.g. nuscenes/usa_singapore/lion_xa

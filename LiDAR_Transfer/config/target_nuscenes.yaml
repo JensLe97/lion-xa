@@ -1,0 +1,9 @@
+name: "Velodyne HDL-32E Lidar"
+beams: 32
+fov_down: -30.67
+fov_up: 10.67
+fov_hor: 360
+angle_res_hor: 0.3515625 # 1024
+res_hor: 1024
+height: 2.3
+beam_angles:

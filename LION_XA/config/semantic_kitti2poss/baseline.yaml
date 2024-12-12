@@ -1,0 +1,38 @@
+MODEL_2D:
+  TYPE: "UNetResNet34"
+  NUM_CLASSES: 12
+MODEL_3D:
+  TYPE: "SCN"
+  NUM_CLASSES: 12
+DATASET_SOURCE:
+  TYPE: "SemanticKITTISCN"
+  TRAIN: ("train",)
+  SemanticKITTISCN:
+    preprocess_dir: "/_data/datasets/SemanticKITTI/semantic_kitti_preprocess_lidar/preprocess"
+DATASET_TARGET:
+  TYPE: "SemanticPOSSSCN"
+  TRAIN: ("train",)
+  VAL: ("val",)
+  TEST: ("test",)
+  SemanticPOSSSCN:
+    preprocess_dir: "/_data/datasets/SemanticPOSS/semantic_poss_preprocess_lidar/preprocess"
+DATALOADER:
+  NUM_WORKERS: 4
+OPTIMIZER:
+  TYPE: "Adam"
+  BASE_LR: 0.001
+SCHEDULER:
+  TYPE: "MultiStepLR"
+  MultiStepLR:
+    gamma: 0.1
+    milestones: (80000, 90000)
+  MAX_ITERATION: 100000
+TRAIN:
+  BATCH_SIZE: 8
+  SUMMARY_PERIOD: 50
+  CHECKPOINT_PERIOD: 5000
+  CLASS_WEIGHTS: [4.0436774, 4.29221852, 1.96403344, 2.77988723, 1.19950707, 3.72986402, 
+                  3.10767449, 2.57602206, 1.52389708, 1.74482833, 4.31337526, 1.]
+  BATCH_SIZE: 8
+  PERIOD: 5000
+OUTPUT_DIR: "/workspace/lion-xa/LION_XA/output/@"  #  @ will be replaced with config path, e.g. nuscenes/usa_singapore/lion_xa

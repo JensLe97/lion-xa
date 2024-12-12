@@ -1,0 +1,67 @@
+MODEL_2D:
+  TYPE: "SalsaNextSeg"
+  DUAL_HEAD: True
+  NUM_CLASSES: 6
+MODEL_3D:
+  TYPE: "SCN"
+  DUAL_HEAD: True
+  NUM_CLASSES: 6
+DATASET_SOURCE:
+  TYPE: "NuScenesSCN"
+  TRAIN: ("train_usa",)
+  NuScenesSCN:
+    root_dir: "/teamspace/studios/this_studio/data/datasets/nuScenes/nuscenes_preprocess_lidarseg/preprocess"
+    lidarseg: True
+DATASET_TARGET:
+  TYPE: "NuScenesSCN"
+  TRAIN: ("train_singapore",)
+  VAL: ("val_singapore",)
+  TEST: ("test_singapore",)
+  NuScenesSCN:
+    root_dir: "/teamspace/studios/this_studio/data/datasets/nuScenes/nuscenes_preprocess_lidarseg/preprocess"
+    lidarseg: True
+DATALOADER:
+  NUM_WORKERS: 4
+OPTIMIZER_2D:
+  TYPE: "SGD"
+  BASE_LR: 0.01
+OPTIMIZER_3D:
+  TYPE: "Adam"
+  BASE_LR: 0.001
+OPTIMIZER_DIS:
+  TYPE: "Adam"
+  BASE_LR: 0.0001
+  Adam:
+      betas: (0.9, 0.99)
+SCHEDULER:
+  TYPE: "MultiStepLR"
+  MultiStepLR:
+    gamma: 0.1
+    milestones: (80000, 90000)
+  MAX_ITERATION: 100000
+SCHEDULER_DIS:
+  TYPE: "PolyLR"
+  PolyLR:
+      power: 0.9
+TRAIN:
+  BATCH_SIZE: 8
+  SUMMARY_PERIOD: 50
+  CHECKPOINT_PERIOD: 5000
+  CLASS_WEIGHTS: [1.52713233, 1., 1.63288121, 1.23282395, 2.13451523, 1.69016539]
+  LION_XA:
+    lambda_xm_src: 0.8
+    lambda_xm_trg: 0.1
+    lambda_pixels: 0.8
+    lambda_G_trg_2d_pred: 0.07
+    lambda_G_trg_3d_pred: 0.05
+    lambda_G_trg_2d_feat: 0.07
+    lambda_D_src_2d_pred: 0.1
+    lambda_D_src_3d_pred: 0.1
+    lambda_D_src_2d_feat: 0.1
+    lambda_D_trg_2d_pred: 0.2
+    lambda_D_trg_3d_pred: 0.2
+    lambda_D_trg_2d_feat: 0.2
+VAL:
+  BATCH_SIZE: 4
+  PERIOD: 5000
+OUTPUT_DIR: "/teamspace/studios/this_studio/lion-xa/LION_XA/output/@"  #  @ will be replaced with config path, e.g. nuscenes/usa_singapore/lion_xa
